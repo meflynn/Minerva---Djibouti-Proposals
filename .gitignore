@@ -1,0 +1,21 @@
+.Rproj.user
+.Rhistory
+.Rdata
+.httr-oauth
+.DS_Store
+.quarto
+
+Conferences/*
+Survey/*
+IRB Submissions/*
+NSF/*
+Official DOD Documents/*
+1-page proposal/*
+Grant Submission Materials/*
+Project141Leak.avif
+Samples/*
+Seed grant proposals/*
+White Papers/*
+supplementary documents/*
+
+/.quarto/

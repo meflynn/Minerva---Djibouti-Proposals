@@ -1,0 +1,8 @@
+project:
+  title: "Preliminary Kenya Review"
+
+  render:
+    - "*.qmd"
+
+profile:
+  default: nice

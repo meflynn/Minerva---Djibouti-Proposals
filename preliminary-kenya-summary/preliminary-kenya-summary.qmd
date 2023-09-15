@@ -1,0 +1,36 @@
+---
+title: "Preliminary Summary of Kenya Data"
+author: "Michael Flynn"
+---
+
+
+```{r setup}
+#|eecho: false
+#|include: false
+#|message: false
+#|warning: false
+
+library(tidyverse)
+library(psych)
+library(purrr)
+library(targets)
+
+tar_load(survey_clean)
+```
+
+
+Test text!
+
+
+```{r overview-tables}
+
+varlist <- colnames(survey_clean)
+
+  map(
+    .x = seq_along(varlist),
+    .f = ~ ifelse(is.numeric(survey_clean[[varlist[[.x]]]]),
+                  print(paste(varlist[[.x]], print(summary(survey_clean[[varlist[[.x]]]])))),
+                  print(paste(varlist[[.x]], print(table(survey_clean[[varlist[[.x]]]]))))
+  ))
+
+```
