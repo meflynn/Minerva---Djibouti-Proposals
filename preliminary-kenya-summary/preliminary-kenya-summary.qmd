@@ -5,10 +5,11 @@ author: "Michael Flynn"
 
 
 ```{r setup}
-#|eecho: false
+#|echo: false
 #|include: false
 #|message: false
 #|warning: false
+#|error: false
 
 library(tidyverse)
 library(psych)
@@ -21,8 +22,7 @@ tar_load(survey_clean)
 ```
 
 
-Test text!
-
+# Tables and Figures
 
 ```{r overview-tables}
 
@@ -43,6 +43,7 @@ outlist <- map(
   .x = seq_along(varlist),
   .f = ~ ggplot(data = survey_clean, aes(x = survey_clean[[.x]])) +
     geom_bar() +
+    theme(axis.text.x.bottom = element_text(angle = 45)) +
     labs(title = glue::glue("{varlist[[.x]]}"))
 )
 
