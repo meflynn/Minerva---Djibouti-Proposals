@@ -72,5 +72,9 @@ list(
   # Render preliminary report
   tar_quarto(preliminary_report,
              path = "preliminary-kenya-summary/preliminary-kenya-summary.qmd",
+             quiet = FALSE),
+
+  tar_quarto(website,
+             path = ".",
              quiet = FALSE)
 )

@@ -14,7 +14,9 @@ library(tidyverse)
 library(psych)
 library(purrr)
 library(targets)
+library(kableExtra)
 
+tar_source("../R/")
 tar_load(survey_clean)
 ```
 
@@ -26,11 +28,24 @@ Test text!
 
 varlist <- colnames(survey_clean)
 
-  map(
-    .x = seq_along(varlist),
-    .f = ~ ifelse(is.numeric(survey_clean[[varlist[[.x]]]]),
-                  print(paste(varlist[[.x]], print(summary(survey_clean[[varlist[[.x]]]])))),
-                  print(paste(varlist[[.x]], print(table(survey_clean[[varlist[[.x]]]]))))
-  ))
+outlist <- list()
+
+for (i in varlist){
+  
+    
+    kableExtra::kbl(print(table(survey_clean[, i])),
+                    caption = paste0("Variable Name: ", i),
+                    format = "html")
+    
+}
+
+outlist <- map(
+  .x = seq_along(varlist),
+  .f = ~ ggplot(data = survey_clean, aes(x = survey_clean[[.x]])) +
+    geom_bar() +
+    labs(title = glue::glue("{varlist[[.x]]}"))
+)
+
+outlist
 
 ```

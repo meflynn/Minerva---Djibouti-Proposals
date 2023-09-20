@@ -1,0 +1,37 @@
+project:
+  title: "Kenya Troop Deployment Survey"
+  type: website
+  output-dir: docs
+
+  render:
+    - "**/*.qmd"
+
+    # But not this!
+    - "!Code/"
+
+  resources:
+    - "*Appendix/"
+    - "*Figures/"
+
+execute:
+  freeze: auto
+
+bibliography: References/references.bib
+csl: References/apsa.csl
+
+website:
+  repo-url: "https://github.com/meflynn/Minerva---Djibouti Proposals"
+
+  page-navigation: true
+
+  navbar:
+    pinned: true
+    search: true
+    right:
+      - text: "Kenya Review"
+        href: "preliminary-kenya-review/preliminary-kenya-summary.qmd"
+
+format:
+  html:
+    theme: default
+    toc: true

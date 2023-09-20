@@ -1,6 +1,7 @@
 name|type|data|command|depend|seed|path|time|size|bytes|format|repository|iteration|parent|children|seconds|warnings|error
 .Random.seed|object|32eafaea5bbc20a6|||||||||||||||
-clean_survey_f|function|32fc299f000e54b4|||||||||||||||
-preliminary_report|stem|2ba5714caabf7d7e|29b4a51621a178ee|594d638f973eeb02|329741483|preliminary-kenya-summary/preliminary-kenya-summary.html*preliminary-kenya-summary/preliminary-kenya-summary.qmd|t19615.8359351009s|7a35a3c995b064d4|108645|file|local|vector|||2.244||
-survey_clean|stem|3d0f8a2741f040af|7922d80be844529d|d58f2a9adb3daed2|781708556||t19614.8452430556s|7b042b6d27625dcc|44726|rds|local|vector|||0.061||
-survey_raw|stem|bfeff4ec73c17365|3b4efa7cb7870fe8|ef46db3751d8e999|-1288409942|Data/Kenya Survey/GeoPoll_Brandeis Survey_Kenya_Final_Data_2023_09_12 V2.xlsx|t19614.8258912037s|e63e6e3e36c6cff2|520131|file|local|vector|||2.077||
+clean_survey_f|function|e4dcc432fbe46961|||||||||||||||
+preliminary_report|stem|911c53a3019e8e40|29b4a51621a178ee|94b2558d8852fe19|329741483|preliminary-kenya-summary/preliminary-kenya-summary.html*preliminary-kenya-summary/preliminary-kenya-summary.qmd|t19620.6889416734s|d26f65e628a2e9e7|105946|file|local|vector|||16.931||
+survey_clean|stem|17df11466734f18e|7922d80be844529d|4c99251b642ab14f|781708556||t19619.8361605246s|a08edd5f39394724|44866|rds|local|vector|||0.057||
+survey_raw|stem|bfeff4ec73c17365|3b4efa7cb7870fe8|ef46db3751d8e999|-1288409942|Data/Kenya Survey/GeoPoll_Brandeis Survey_Kenya_Final_Data_2023_09_12 V2.xlsx|t19614.8258914084s|e63e6e3e36c6cff2|520131|file|local|vector|||2.077||
+website|stem|36fd55c48667275f|7df3e394a1bcaa99|94b2558d8852fe19|-995004223|docs*preliminary-kenya-summary/preliminary-kenya-summary.qmd*_quarto.yml*References/apsa.csl*References/references.bib*Samples/BTW White Paper/CVs for Appendix/Allen - CV.pdf*Samples/BTW White Paper/CVs for Appendix/CV-Stravers-Minerva.docx*Samples/BTW White Paper/CVs for Appendix/CV-Stravers-Minerva.pdf*Samples/BTW White Paper/CVs for Appendix/Flynn_CV.pdf*Samples/BTW White Paper/CVs for Appendix/MartinezMachainCVnew.pdf|t19620.688745399s|cf5efb92a69c25ee|6848719|file|local|vector|||2.305||
