@@ -29,9 +29,9 @@ tar_load(survey_clean)
 
 3. Way higher rate of contact with Chinese citizens than US. 
 
-4. Income is highly skewed to the lowest income grouping. Roughly 65% of respondents fall ingo the lowest income quantile. 
+4. Income is highly skewed to the lowest income grouping. Roughly 65% of respondents fall into the lowest income quantile. 
 
-5. Age is fairly even-ish across the three groupings, but that 35+ category is catching a lot of variation. 
+5. Age is fairly even-ish across the three groupings, but that 35+ category is catching a lot of variation. We also have the specific age variable so we can generate new groupings if need be.
 
 6. Respondents overwhelmingly from Mombasa. 
 
