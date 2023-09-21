@@ -5,11 +5,11 @@ author: "Michael Flynn"
 
 
 ```{r setup}
-#|echo: false
-#|include: false
-#|message: false
-#|warning: false
-#|error: false
+#| echo: false
+#| include: false
+#| message: false
+#| warning: false
+#| error: false
 
 library(tidyverse)
 library(psych)
@@ -17,9 +17,23 @@ library(purrr)
 library(targets)
 library(kableExtra)
 
-tar_source("../R/")
+#tar_source("../R/")
 tar_load(survey_clean)
 ```
+
+# Notes
+
+1. Not a lot of variation in the amount of influence questions. Most responses heavily concentrated on "some" and "a lot". More variation on the quality of influence.  
+
+2. Interestingly high number of people saying they don't know when asked if China has a military presence in Kenya. Notably, some of the people saying "don't know" here seem to be providing answers other than "don't know" when asked about the quality of influence.
+
+3. Way higher rate of contact with Chinese citizens than US. 
+
+4. Income is highly skewed to the lowest income grouping. Roughly 65% of respondents fall ingo the lowest income quantile. 
+
+5. Age is fairly even-ish across the three groupings, but that 35+ category is catching a lot of variation. 
+
+6. Respondents overwhelmingly from Mombasa. 
 
 
 # Tables and Figures
@@ -43,7 +57,7 @@ outlist <- map(
   .x = seq_along(varlist),
   .f = ~ ggplot(data = survey_clean, aes(x = survey_clean[[.x]])) +
     geom_bar() +
-    theme(axis.text.x.bottom = element_text(angle = 45)) +
+    theme(axis.text.x.bottom = element_text(angle = 45, vjust = 1, hjust = 1)) +
     labs(title = glue::glue("{varlist[[.x]]}"))
 )
 

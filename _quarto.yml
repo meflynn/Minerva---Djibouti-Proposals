@@ -29,7 +29,7 @@ website:
     search: true
     right:
       - text: "Kenya Review"
-        href: "preliminary-kenya-review/preliminary-kenya-summary.qmd"
+        href: "preliminary-kenya-summary/preliminary-kenya-summary.qmd"
 
 format:
   html:
