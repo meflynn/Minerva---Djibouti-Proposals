@@ -39,6 +39,8 @@ tar_load(survey_clean)
 # Tables and Figures
 
 ```{r overview-tables}
+#| echo: false
+#| warning: false
 
 varlist <- colnames(survey_clean)
 
@@ -46,11 +48,9 @@ outlist <- list()
 
 for (i in varlist){
   
-    
     kableExtra::kbl(print(table(survey_clean[, i])),
                     caption = paste0("Variable Name: ", i),
                     format = "html")
-    
 }
 
 outlist <- map(
