@@ -1,0 +1,116 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,graphicx,paralist,setspace,amsthm,pdflscape,fancyhdr,fullpage,rotating,tikz,xcolor,float,varwidth,comment,multirow,array,makecell}
+\usepackage{sectsty}
+\sectionfont{\centering\large}
+\subsectionfont{\centering\normalsize}
+\usepackage{subfigure}
+\usepackage{longtable}
+\usepackage[]{har2nat}
+\setcitestyle{aysep={}}
+\setcitestyle{notesep={, }}
+\usepackage{mathtools}
+\usepackage{url}
+\usepackage{placeins,float}
+
+\makeatletter
+\g@addto@macro{\UrlBreaks}{\UrlOrds}
+\makeatother
+
+\usepackage{appendix}
+\newtheorem{hyp}{Hypothesis}
+\usepackage[space]{grffile}
+\usepackage[urlcolor=blue,citecolor=blue,linkcolor=blue,linktocpage=true,backref=true]{hyperref}
+\usepackage{setspace} % load setspace before footmisc
+%\usepackage{footmisc}
+%\renewcommand{\footnotelayout}{\doublespacing}
+%\setlength{\footnotesep}{\baselineskip}
+\hypersetup{
+	colorlinks=true,
+	urlcolor=blue
+}
+\usepackage[space]{grffile}
+\bibliographystyle{apsr}
+\usepackage{siunitx}
+\sisetup{
+	table-parse-only = true,
+	tight-spacing           = true,
+	input-open-uncertainty  = ,
+	input-close-uncertainty = ,
+	round-mode              = none,
+	round-precision         = 3,
+	table-space-text-pre    = (,
+	table-figures-integer = 3,
+	table-figures-decimal = 3,
+	table-figures-exponent = 2,
+	table-align-text-pre  = false,
+	table-align-exponent = true,
+	table-space-text-post   = )\Star,
+}
+\protected\def\Star{$\text{*}$}
+\newcommand\Mycomb[2][^n]{\prescript{#1\mkern-0.5mu}{}C_{#2}}
+\newcommand{\possessivecite}[1]{\citeauthor{#1}'s \citeyear{#1}}
+%\raggedright
+\makeatletter
+\newcounter{subhyp} 
+\let\savedc@hyp\c@hyp
+\newenvironment{subhyp}
+{%
+	\setcounter{subhyp}{0}%
+	\stepcounter{hyp}%
+	\edef\saved@hyp{\thehyp}% Save the current value of hyp
+	\let\c@hyp\c@subhyp     % Now hyp is subhyp
+	\renewcommand{\thehyp}{\saved@hyp\alph{hyp}}%
+}
+{}
+\newcommand{\normhyp}{%
+	\let\c@hyp\savedc@hyp % revert to the old one
+	\renewcommand\thehyp{\arabic{hyp}}%
+} 
+\makeatother
+\begin{document}
+
+
+
+\author{Michael A. Allen \\ Department of Political Science \\ Boise State University \and Brian D. Blankenship \\Department of Political Science\\University of Miami \and Michael E. Flynn \\ Department of Political Science \\ Kansas State University \and Renanah Miles Joyce \\ Department of Political Science \\ Brandeis University \and Carla Mart\'{i}nez Machain \\ Department of Political Science \\ University at Buffalo}
+\title{Great Power Competition for Military Access in Kenya \footnote{We would like to thank...}}
+
+\date{\vspace{2em}\today \vspace{1em}}
+
+\maketitle
+
+\thispagestyle{empty}
+
+\clearpage
+
+\begin{abstract}
+\noindent 
+
+This project highlights unique features of the China-U.S. relationship and presents new hypotheses on the interaction between democratic and autocratic powers in their competition for international influence.
+\end{abstract}
+
+
+
+
+	\vfill
+	
+	\thispagestyle{empty}
+	
+	
+	\newpage
+\setcounter{page}{1}
+
+\doublespacing
+	\input{Kenya-intro}
+	\input{Kenya-theory}
+	\input{Kenya-rd}
+	\input{Kenya-results}
+	\input{Kenya-conclusion}
+
+\newpage
+
+
+\bibliography{Kenya}
+
+
+
+\end{document}

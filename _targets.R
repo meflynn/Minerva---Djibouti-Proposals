@@ -23,7 +23,7 @@ set.seed(66502)
 
 # Set target options:
 tar_option_set(
-  packages = c("tibble", "data.table", "brms", "sf", "tidybayes", "modelsummary", "cmdstanr", "marginaleffects", "flynnprojects", "viridis", "glue", "here", "kableExtra", "purrr", "furrr", "tarchetypes", "quarto", "future", "ggdist", "tinytex", "bayesplot", "patchwork"), # packages that your targets need to run
+  packages = c("tibble", "data.table", "brms", "sf", "tidybayes", "modelsummary", "cmdstanr", "marginaleffects", "flynnprojects", "viridis", "glue", "here", "kableExtra", "purrr", "furrr", "tarchetypes", "quarto", "future", "ggdist", "tinytex", "bayesplot", "patchwork", "stringr"), # packages that your targets need to run
   format = "rds" # default storage format
   # Set other options as needed.
 )
@@ -68,6 +68,15 @@ list(
 
   # Read in and clean raw data
   tar_target(survey_clean, clean_survey_f(survey_raw)),
+
+  # Figures for NSF proposal
+  tar_target(nsf_military_presence, figures_nsf_military_presence_f(survey_clean)),
+
+  # Priors for ISA Kenya Paper
+  tar_target(priors_clean, clean_priors_province_f(survey_clean)),
+
+  # Models for ISA Kenya Paper
+  tar_target(models_kenya, models_kenya_f(survey_clean, priors_clean)),
 
   # Render preliminary report
   tar_quarto(preliminary_report,
