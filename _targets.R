@@ -78,6 +78,9 @@ list(
   # Models for ISA Kenya Paper
   tar_target(models_kenya, models_kenya_f(survey_clean, priors_clean)),
 
+  # Posterior predictive checks for ISA Kenya Paper
+  tar_target(contact_figs, ppc_plot_f(models_kenya, outcome.cats = c("Positive", "Neutral", "Negative"), group.effects = FALSE)),
+
   # Render preliminary report
   tar_quarto(preliminary_report,
              path = "preliminary-kenya-summary/preliminary-kenya-summary.qmd",
