@@ -78,7 +78,7 @@ ppc_plot_f <- function(model, outcome.cats, group.effects) {
                        ggdist::stat_slab(alpha = 0.65,
                                          size = 0.1) +
                        ggdist::stat_pointinterval(.width = c(0.5, 0.89),
-                                                  position = position_dodge(width = 0.5,
+                                                  position = position_dodge(width = 0.75,
                                                                             preserve = "single"),
                                                   show.legend = FALSE) +
                        viridis::scale_fill_viridis(discrete = TRUE,
