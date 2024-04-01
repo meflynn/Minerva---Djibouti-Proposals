@@ -8,45 +8,45 @@ Database file #1: Kenya.bib
 Warning--there's a number but no volume in nye1990
 Warning--empty institution in DOD2023
 Warning--empty institution in state2018
-You've used 53 entries,
+You've used 56 entries,
             2874 wiz_defined-function locations,
-            945 strings with 13080 characters,
-and the built_in function-call counts, 191050 in all, are:
-= -- 31281
-> -- 1904
+            961 strings with 13513 characters,
+and the built_in function-call counts, 201237 in all, are:
+= -- 32933
+> -- 2022
 < -- 0
-+ -- 14422
-- -- 703
-* -- 15965
-:= -- 38808
-add.period$ -- 212
-call.type$ -- 53
-change.case$ -- 691
-chr.to.int$ -- 53
-cite$ -- 56
-duplicate$ -- 802
-empty$ -- 1693
-format.name$ -- 774
-if$ -- 34219
++ -- 15178
+- -- 746
+* -- 16818
+:= -- 40892
+add.period$ -- 224
+call.type$ -- 56
+change.case$ -- 730
+chr.to.int$ -- 56
+cite$ -- 59
+duplicate$ -- 846
+empty$ -- 1791
+format.name$ -- 819
+if$ -- 36042
 int.to.chr$ -- 5
 int.to.str$ -- 0
-missing$ -- 66
-newline$ -- 239
-num.names$ -- 581
-pop$ -- 268
+missing$ -- 69
+newline$ -- 251
+num.names$ -- 615
+pop$ -- 278
 preamble$ -- 1
-purify$ -- 795
+purify$ -- 840
 quote$ -- 0
-skip$ -- 633
+skip$ -- 672
 stack$ -- 0
-substring$ -- 43870
-swap$ -- 89
-text.length$ -- 742
+substring$ -- 46168
+swap$ -- 95
+text.length$ -- 784
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 182
+type$ -- 194
 warning$ -- 3
-while$ -- 1213
+while$ -- 1284
 width$ -- 0
-write$ -- 727
+write$ -- 766
 (There were 3 warnings)

@@ -23,7 +23,7 @@ set.seed(66502)
 
 # Set target options:
 tar_option_set(
-  packages = c("tibble", "data.table", "brms", "sf", "tidybayes", "modelsummary", "cmdstanr", "marginaleffects", "flynnprojects", "viridis", "glue", "here", "kableExtra", "purrr", "furrr", "tarchetypes", "quarto", "future", "ggdist", "tinytex", "bayesplot", "patchwork", "stringr"), # packages that your targets need to run
+  packages = c("tibble", "future", "data.table", "brms", "sf", "tidybayes", "modelsummary", "cmdstanr", "marginaleffects", "flynnprojects", "viridis", "glue", "here", "kableExtra", "purrr", "furrr", "tarchetypes", "quarto", "future", "ggdist", "tinytex", "bayesplot", "patchwork", "stringr"), # packages that your targets need to run
   format = "rds" # default storage format
   # Set other options as needed.
 )
@@ -41,7 +41,7 @@ options(future.globals.maxSize= 8097152000)
 # This uses a nested multicore setup, so you can have four cores per model and
 # run four models in parallel
 #plan(multiprocess)
-plan(
+future::plan(
   list(
     tweak(multisession, workers = 4),
     tweak(multisession, workers = 4)
@@ -51,7 +51,7 @@ plan(
 # Install packages {{future}}, {{future.callr}}, and {{future.batchtools}} to allow use_targets() to configure tar_make_future() options.
 
 # Enable custom fonts
-sysfonts::font_add_google("Oswald")
+sysfonts::font_add_google("Oswald", "oswald")
 sysfonts::font_add_google("EB Garamond", family = "ebgaramond")
 showtext::showtext_auto()
 showtext::showtext_opts(dpi = 300)

@@ -63,26 +63,38 @@ ppc_plot_f <- function(model, outcome.cats, group.effects) {
 
   plotlist <- furrr::future_map(.x = seq_along(model),
                                  .f = ~ add_epred_draws(model[[.x]],
-                                                        .ndraws = 200,
+                                                        .ndraws = 500,
                                                         .value = ".epred",
                                                         re_formula = group_effects,
                                                         newdata = newdataframe,
                                                         seed = 55602) |>
     mutate(model = glue::glue("{model[[.x]]$formula[[5]]}"),
-           model = case_when(str_detect(model, "US") ~ "United States",
-                             str_detect(model, "Chinese") ~ "Chinese"),
+           model = case_when(str_detect(model, "US") ~ "U.S. Influence",
+                             str_detect(model, "Chinese") ~ "Chinese Influence"),
            grouping = glue::glue("US Contact: {USCitizenContact} and Chinese Contact: {ChineseCitizenContact}"))
     )|>
    furrr::future_map(.f = ~ggplot2::ggplot(data = .x |> filter(.category %in% outcome.cats),
-                                             aes(x = .epred)) +
-                        ggdist::stat_slabinterval(aes(fill = grouping)) +
+                                           aes(x = .epred, fill = grouping, color = grouping)) +
+                       ggdist::stat_slab(alpha = 0.65,
+                                         size = 0.1) +
+                       ggdist::stat_pointinterval(.width = c(0.5, 0.89),
+                                                  position = position_dodge(width = 0.5,
+                                                                            preserve = "single"),
+                                                  show.legend = FALSE) +
                        viridis::scale_fill_viridis(discrete = TRUE,
                                                    option = "magma") +
-                        facet_grid(model ~ .category, scales = "free") +
-                        flynnprojects::theme_flynn(base_size = 11, base_family = "oswald") +
-                        labs(title = glue::glue("Views of {.x$model}"),
+                       viridis::scale_color_viridis(discrete = TRUE,
+                                                    option = "magma") +
+                       scale_x_continuous(breaks = seq(0, 1, 0.2),
+                                          limits = c(0, 1)) +
+                       facet_wrap(vars(.category)) +
+                       theme(legend.position = "bottom") +
+                       flynnprojects::theme_flynn(base_size = 11, base_family = "oswald") +
+                       labs(title = glue::glue("Views of {.x$model}"),
                              x = "Predicted Probability",
-                             y = "Outcome Category")
+                             y = "Density",
+                            fill = "Contact Grouping",
+                            color = "Contact Grouping")
                         )
   # Use the patchwork package to combine the list of ggplot objects into a single plotlist object.
   # Add a title to the combined plot saying "Predicted Probabilities of Outcome by Contact Type and Country".
@@ -90,11 +102,20 @@ ppc_plot_f <- function(model, outcome.cats, group.effects) {
   # Use the ggsave function to save the plotlist object as a PDF.
   # The figure's height should be 8 in and the width should be 9 in.
 
-  plotout <- patchwork::wrap_plots(plotlist[[1]], plotlist[[2]]) +
-    patchwork::plot_annotation(title = "Predicted Probabilities of Outcome by Contact Type and Country")
+  patchwork::wrap_plots(plotlist[[1]], plotlist[[2]],
+                        ncol = 1) +
+    patchwork::plot_layout(guides = "collect") +
+    patchwork::plot_annotation(title = "Predicted Probabilities of Outcome by Contact Type and Country") &
+    theme(legend.position = "bottom",
+          legend.direction = "vertical",
+          plot.title = element_text(size = 20,
+                                    face = "bold",
+                                    family = "oswald"))
 
-    ggsave(plotout,
-           here::here("Figures/Kenya-ISA/figure-predicted-probabilities.pdf"), height = 8, width = 9)
+    ggsave(here::here("Figures/Kenya-ISA/figure-predicted-probabilities.png"),
+           height = 8,
+           width = 8,
+           dpi = 300)
 
 
     return(plotlist)
